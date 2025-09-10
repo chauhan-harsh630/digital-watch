@@ -1,0 +1,107 @@
+body {
+  background: #101820; 
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: cursive;
+  color: white;
+}
+
+/* Main container */
+.container {
+  width: 90%;
+  max-width: 500px;             /* limit for big screens */
+  display: flex;
+  flex-wrap: wrap;              /* allow wrap on small screens */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 30px;
+  background: #1a1f2b;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Time blocks */
+.houre,
+.min,
+.sec {
+  flex: 1 1 80px;               /* responsive flexible */
+  max-width: 120px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 15px;
+  background: #242b38;
+  border: none;
+  color: #56ab0b;
+  box-shadow: inset -5px -5px 10px rgba(219, 219, 219, 0.05),
+              inset 5px 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Blinking colon */
+.colon {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ccc;
+  text-shadow: 0 0 5px #56ab0b;
+  animation: blink 1s infinite;
+}
+@keyframes blink { 50% {opacity: 0} }
+
+/* AM/PM */
+#ampm {
+  font-size: 26px;
+  font-weight: bold;
+  color: #9df054;
+  margin-bottom: 10px;
+}
+
+/* Side info */
+.side-box {
+  flex: 1 1 100%;               /* takes full row when wrapped */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.date-box {
+  background: #242b38;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.05),
+              inset 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+#day { font-size: 18px; color: #ccc; margin-bottom: 5px; }
+#newDate { font-size: 24px; font-weight: bold; color: #56ab0b; }
+#month, #year { font-size: 16px; color: #9df054; }
+
+/* 📱 Mobile tweaks */
+@media (max-width: 600px) {
+  .houre, .min, .sec {
+    font-size: 26px;
+    height: 70px;
+  }
+  .colon { font-size: 22px; }
+  #ampm { font-size: 20px; }
+  #newDate { font-size: 20px; }
+}
+@media (max-width: 400px) {
+  .container {
+    flex-direction: column;     /* stack everything */
+    gap: 10px;
+  }
+  .houre, .min, .sec {
+    max-width: 100%;
+    width: 100%;
+  }
+}
